@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+<title>WEB Page</title>
+<meta charset="UTF-8">
+</head>
+<script>
+  var ws;
+  function openSocket(){
+	var ws = new WebSocket("ws://192.168.4.1:80/websocket")
+   ws.onopen = function(){
+		console.log("WebSocket Connected !!!");
+		ws.send("Connected" + new Date());
+   };
+   ws.onclose = function(){console.log("WebSocket Clooooosed !!!");};
+  }
+  function closeSocket(){
+  	console.log("Hello" + String.fromCharCode(10) + "World");
+  }
+  function sendData(){
+	var message = "";
+	message += "Enter sendData function";
+	document.getElementById("debug").innerHTML = message;
+
+	var request = new XMLHttpRequest();
+	request.overrideMimeType("text/plain")
+	document.getElementById("debug").innerHTML = message;
+
+	request.onreadystatechange = function(){
+		message += "Enter send function";
+		if(this.readyState == 4 && this.status == 200){
+			var reponse = this.responseText;
+   			document.getElementById("textBox").innerHTML = reponse;
+		}
+	};
+	document.getElementById("debug").innerHTML = message;
+	request.open("GET", "http://192.168.4.1:80/data", true);
+	request.send();
+	
+  }
+
+</script>
+<body>
+<h3>Module de commande ESP8266</h3>
+<button type="button" onclick="sendData()">Send Data</button>
+<button type="button" onclick="openSocket()">Open Socket</button>
+<button type="button" onclick="closeSocket()">Close Socket</button>
+<div id="textBox"></div>
+<div id="debug"></div>
+</body>
+</html>
+
