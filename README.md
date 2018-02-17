@@ -8,6 +8,7 @@ The request is 192.168.4.1/page
 # Compile
 - make writeflash
 or
+
 - make
 - make hex
 - avrdude -p m32 -c your_isp_programmer -U flash:w:esp8266_websocket.hex
