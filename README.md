@@ -12,4 +12,4 @@ or
 
 - make
 - make hex
-- avrdude -p m32 -c your_isp_programmer -U flash:w:esp8266_websocket.hex
+- avrdude -p m32 -c your_isp_programmer -U flash:w:esp8266-webSocket.hex
