@@ -1,5 +1,7 @@
 # Esp8266-WebSocket-Server
 Esp8266 WebSocket Server control via AT_COMMAND by ATmega32 microcontroler
+Suppport HTTP request
+Support websocket : https://tools.ietf.org/html/rfc6455
 
 The ATmega32 is program like a state Machine and send command to the ESP8266 via UART.
 
